@@ -140,13 +140,15 @@ body {
 /* Input Section */
 #chatbot-input-container {
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   padding: 15px;
   border-top: 1px solid #b2dfdb;
   background-color: #f0fbfa;
 }
 
 #chatbot-input {
-  flex: 1;
+  width: 100%;
   padding: 12px 15px;
   border: 1px solid #80deea;
   border-radius: 10px;
@@ -156,7 +158,7 @@ body {
 }
 
 #send-btn {
-  margin-left: 10px;
+  width: 100%;
   padding: 12px 18px;
   background-color: #00b8a9;
   color: white;
@@ -184,12 +186,12 @@ body {
 /* -------------------- */
 @media (max-width: 768px) {
   #chatbot-container {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    transform: none;
-    border-radius: 0;
+    width: 70vw;
+    height: 90vh;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
   }
 
   #chatbot-header {
@@ -199,24 +201,6 @@ body {
 
   #chatbot-body {
     padding: 15px;
-  }
-
-  #chatbot-input-container {
-    flex-direction: column;
-    padding: 10px;
-    gap: 10px;
-  }
-
-  #chatbot-input {
-    width: 100%;
-    font-size: 16px;
-    padding: 10px;
-  }
-
-  #send-btn {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
   }
 
   .message {
@@ -237,12 +221,12 @@ body {
 
 @media (max-width: 480px) {
   #chatbot-container {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    transform: none;
-    border-radius: 0;
+    width: 70vw;
+    height: 90vh;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
   }
 
   #chatbot-header {
