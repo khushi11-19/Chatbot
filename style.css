@@ -1,0 +1,268 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e0f7fa;
+  color: #333;
+}
+
+/* Welcome Screen */
+#welcome-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to right, #b2ebf2, #e0f7fa);
+}
+
+#welcome-screen h1 {
+  font-size: 3rem;
+  color: #007b83;
+  margin-bottom: 30px;
+}
+
+#start-chat-btn {
+  padding: 14px 28px;
+  font-size: 18px;
+  background-color: #007b83;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#start-chat-btn:hover {
+  background-color: #00b8a9;
+  transform: scale(1.05);
+}
+
+/* Chatbot Container - Centered Box */
+#chatbot-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 60%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+  border-radius: 20px;
+}
+
+/* Hide Initially */
+.hidden {
+  display: none !important;
+}
+
+/* Chatbot Header */
+#chatbot-header {
+  background-color: #00b8a9;
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+#close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Chatbot Body */
+#chatbot-body {
+  flex: 1;
+  padding: 20px;
+  background-color: #f1fcfc;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* Chatbot Messages */
+#chatbot-messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  max-width: 75%;
+  word-wrap: break-word;
+  line-height: 1.4;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message.user {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+  align-self: flex-end;
+}
+
+.message.bot {
+  background-color: #e0f7fa;
+  color: #004d40;
+  align-self: flex-start;
+}
+
+/* Input Section */
+#chatbot-input-container {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #b2dfdb;
+  background-color: #f0fbfa;
+}
+
+#chatbot-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #80deea;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 16px;
+}
+
+#send-btn {
+  margin-left: 10px;
+  padding: 12px 18px;
+  background-color: #00b8a9;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#send-btn:hover {
+  background-color: #009688;
+}
+
+/* Accessibility */
+#start-chat-btn:focus,
+#send-btn:focus,
+#close-btn:focus {
+  outline: 2px solid #00b8a9;
+  outline-offset: 2px;
+}
+
+/* -------------------- */
+/* RESPONSIVE DESIGN 👇 */
+/* -------------------- */
+@media (max-width: 768px) {
+  #chatbot-container {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: none;
+    border-radius: 0;
+  }
+
+  #chatbot-header {
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  #chatbot-body {
+    padding: 15px;
+  }
+
+  #chatbot-input-container {
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  #chatbot-input {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  #send-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .message {
+    font-size: 15px;
+    padding: 10px 14px;
+    max-width: 90%;
+  }
+
+  #start-chat-btn {
+    font-size: 16px;
+    padding: 12px 22px;
+  }
+
+  #welcome-screen h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #chatbot-container {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: none;
+    border-radius: 0;
+  }
+
+  #chatbot-header {
+    font-size: 16px;
+  }
+
+  #chatbot-input {
+    font-size: 15px;
+  }
+
+  #send-btn {
+    font-size: 15px;
+  }
+
+  #welcome-screen h1 {
+    font-size: 2rem;
+  }
+
+  #start-chat-btn {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+}
